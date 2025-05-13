@@ -3,6 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# ruff stuff
+.ruff_cache
+
+# MlFLow
+mlruns/
+mlartifacts/
+
+# tensorboard
+runs/
+
 # C extensions
 *.so
 
