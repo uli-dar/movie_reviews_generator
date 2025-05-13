@@ -92,6 +92,7 @@ if __name__ == "__main__":
         logger.info("Training started")
         loss_history, metric_history, best_model = train_model(
             model,
+            model_name,
             train_dataloader,
             test_dataloader,
             params["epochs"],

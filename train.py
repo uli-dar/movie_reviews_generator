@@ -22,7 +22,7 @@ def evaluate(model, criterion, test_dataloader) -> float:
 
 
 def train_model(
-    model, train_dataloader, test_dataloader, epochs, optimizer, criterion, writer
+    model, model_name, train_dataloader, test_dataloader, epochs, optimizer, criterion, writer
 ):
     losses = []
     perplexity = []
@@ -42,12 +42,14 @@ def train_model(
 
         losses.append(sum(epoch_losses) / len(epoch_losses))
         writer.add_scalars(
-            "Train Loss", {"LSTM": sum(epoch_losses) / len(epoch_losses)}, epoch
+            "Train Loss", {f"{model_name}": sum(epoch_losses) / len(epoch_losses)}, epoch
         )
 
         current_perplexiry = evaluate(model, criterion, test_dataloader)
         perplexity.append(current_perplexiry)
-        writer.add_scalars("Test perplexity", {"LSTM": current_perplexiry}, epoch)
+        writer.add_scalars(
+            "Test perplexity", {f"{model_name}": current_perplexiry}, epoch
+            )
 
         if current_perplexiry < best_perplexity:
             best_perplexity = current_perplexiry
