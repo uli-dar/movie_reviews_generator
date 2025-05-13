@@ -1,0 +1,7 @@
+,0,1
+0,test_size,0.3
+1,word_threshold,37.0
+2,vocab_size,40000.0
+3,sentence_amount,234324.0
+4,batch_size,128.0
+5,pad_id,31195.0
